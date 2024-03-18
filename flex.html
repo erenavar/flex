@@ -13,6 +13,11 @@
     <link rel="stylesheet" href="./main.css" />
     <link rel="stylesheet" href="./nav.css" />
     <link rel="stylesheet" href="./aside.css" />
+    <link
+      rel="stylesheet"
+      href="https://netdna.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="bootstrapDatepicker.css" />
   </head>
   <body>
     <nav>
@@ -37,7 +42,150 @@
       </ul>
       <a href="#"><i class="fa-2x fa fa-sign-out"></i></a>
     </nav>
-    <main></main>
-    <aside>aside</aside>
+    <main>
+      <div class="header">
+        <div class="listingControls">
+          <a href="#"><i class="fa fa-list"></i></a>
+          <a href="#"><i class="fa fa-bars"></i></a>
+        </div>
+        <select name="" id="">
+          <option value="x">Last 15 Days</option>
+        </select>
+      </div>
+      <div class="cardArea">
+        <div class="cards">
+          <div class="card">
+            <i class="fa-brands fa-2x fa-twitter"></i><br /><br />
+            <text class="counter">280k</text><br />
+            <text class="followers">Followers</text><br />
+            <i class="fa fa-ellipsis-h"></i>
+          </div>
+        </div>
+        <div class="cards">
+          <div class="card" style="background-color: white">
+            <i class="fa-brands fa-2x fa-instagram"></i><br /><br />
+            <text class="counter">680k</text><br />
+            <text class="followers">Followers</text><br />
+            <i class="fa fa-ellipsis-h"></i>
+          </div>
+        </div>
+        <div class="cards">
+          <div class="card">
+            <i class="fa-brands fa-2x fa-youtube" style="color: #ff2600"></i
+            ><br /><br />
+            <text class="counter">2.3M</text><br />
+            <text class="followers">Followers</text><br />
+            <i class="fa fa-ellipsis-h"></i>
+          </div>
+        </div>
+        <div class="cards">
+          <div class="card">
+            <i class="fa-brands fa-2x fa-facebook-f" style="color: #3b5998"></i
+            ><br /><br />
+            <text class="counter">50k</text><br />
+            <text class="followers">Followers</text><br />
+            <i class="fa fa-ellipsis-h"></i>
+          </div>
+        </div>
+      </div>
+      <div id="canvas">
+        <canvas id="myChart" style="width: 100%; max-width: 700px"></canvas>
+      </div>
+      <div class="lastSide">
+        <div class="metrics">
+          <h3>Key Metrics</h3>
+          <div class="results">
+            <div class="like">Clicks</div>
+            <div class="like">10k</div>
+          </div>
+          <hr />
+          <div class="results">
+            <div class="like">Likes</div>
+            <div class="like">680</div>
+          </div>
+          <hr />
+          <div class="results">
+            <div class="like">Followers</div>
+            <div class="like">8k</div>
+          </div>
+          <hr />
+          <div class="results">
+            <div class="like">Impressions</div>
+            <div class="like">5500</div>
+          </div>
+        </div>
+        <div class="info">
+          <div class="info1">Engaged Users</div>
+          <div class="info2">12.2k</div>
+          <div>
+            <i
+              class="fa-solid fa-angles-up"
+              style="color: #008f51; margin-right: 5px"
+            ></i
+            ><span>19%</span>
+          </div>
+        </div>
+        <div class="info">
+          <div class="info1">Page Impressions</div>
+          <div class="info2">8.6k</div>
+          <div>
+            <i
+              class="fa-solid fa-angles-down"
+              style="color: #ff2600; margin-right: 5px"
+            ></i
+            ><span>19%</span>
+          </div>
+        </div>
+      </div>
+    </main>
+    <aside>
+      <div class="asideHeader">
+        <i class="fa-regular fa-bell"></i>
+        <div>
+          <a href="#">
+            <i class="fa-solid fa-gift"></i> <span>2 NEW UPDATES</span>
+          </a>
+        </div>
+        <i class="fa-regular fa-user"></i>
+      </div>
+      <div class="datepicker"></div>
+      <div class="messages">
+        <div class="message">Say hi to Eren Avar</div>
+        <div class="message">Say hi to Joey Tribbiani</div>
+      </div>
+    </aside>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-datepicker@1.9.0/dist/js/bootstrap-datepicker.min.js"></script>
+    <script>
+      $(".datepicker").datepicker();
+    </script>
+    <script>
+      const myChart = new Chart("myChart", {
+        type: "bar",
+        data: {},
+        options: {},
+      });
+    </script>
+    <script>
+      const xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
+      const yValues = [55, 49, 44, 24, 15];
+      const barColors = ["red", "green", "blue", "orange", "brown"];
+
+      new Chart("myChart", {
+        type: "line",
+        data: {
+          labels: xValues,
+          datasets: [
+            {
+              backgroundColor: barColors,
+              data: yValues,
+            },
+          ],
+        },
+        options: {},
+      });
+    </script>
   </body>
 </html>
